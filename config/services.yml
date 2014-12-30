@@ -1,0 +1,8 @@
+services:
+    marttiphpbb.postingtemplate.listener:
+        class: marttiphpbb\postingtemplate\event\main_listener
+        arguments:
+            - @request
+            - @user
+        tags:
+            - { name: event.listener }
