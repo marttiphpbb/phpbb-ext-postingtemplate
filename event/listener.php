@@ -84,13 +84,15 @@ class listener implements EventSubscriberInterface
 
 	public function core_acp_manage_forums_display_form($event)
 	{
-		$forum_data = $event['forum_data'];
+		$forum_id = $event['forum_id'];
 		$template_data = $event['template_data'];
-		
-		$template_data['FORUM_POSTINGTEMPLATE'] = $forum_data['forum_postingtemplate'];
+
+		$postingtemplate = $this->config_text->get('marttiphpbb_postingtemplate_forum[' . $forum . ']');
+
+		$template_data['FORUM_POSTINGTEMPLATE'] = ($postingtemplate) ? $postingtemplate : '';
 		
 		$event['template_data'] = $template_data;
-		
+
 		$this->user->add_lang_ext('marttiphpbb/postingtemplate', 'acp');
 	}
 
