@@ -1,6 +1,6 @@
 services:
     marttiphpbb.postingtemplate.listener:
-        class: marttiphpbb\postingtemplate\event\main_listener
+        class: marttiphpbb\postingtemplate\event\listener
         arguments:
             - @request
             - @user
