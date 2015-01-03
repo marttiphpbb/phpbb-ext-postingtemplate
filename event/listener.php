@@ -51,8 +51,10 @@ class listener implements EventSubscriberInterface
 	static public function getSubscribedEvents()
 	{
 		return array(
-			'core.acp_manage_forums_request_data'		=> 'core_acp_manage_forums_request_data',
-			'core.acp_manage_forums_initialise_data'	=> 'core_acp_manage_forums_initialise_data',
+//			'core.acp_manage_forums_request_data'		=> 'core_acp_manage_forums_request_data',
+//			'core.acp_manage_forums_initialise_data'	=> 'core_acp_manage_forums_initialise_data',
+
+			'core.acp_manage_forums_update_data_after'	=> 'core_acp_manage_forums_update_data_after',
 			'core.acp_manage_forums_display_form'		=> 'core_acp_manage_forums_display_form',
 			'core.posting_modify_template_vars'			=> 'core_posting_modify_template_vars',
 		);
@@ -82,12 +84,29 @@ class listener implements EventSubscriberInterface
 		$event['forum_data'] = $forum_data;
 	}
 
+	public function core_acp_manage_forums_update_data_after($event)
+	{
+		$forum_data = $event['forum_data'];
+		$forum_id = $forum_data['forum_id'];
+
+		$postingtemplate = $this->request->variable('forum_postingtemplate', '');
+
+		if ($postingtemplate)
+		{
+			$this->config_text->set('marttiphpbb_postingtemplate_forum[' . $forum_id . ']', $postingtemplate);
+		}
+		else
+		{
+			$this->config_text->delete('marttiphpbb_postingtemplate_forum[' . $forum_id . ']');
+		}
+	}
+
 	public function core_acp_manage_forums_display_form($event)
 	{
 		$forum_id = $event['forum_id'];
 		$template_data = $event['template_data'];
 
-		$postingtemplate = $this->config_text->get('marttiphpbb_postingtemplate_forum[' . $forum . ']');
+		$postingtemplate = $this->config_text->get('marttiphpbb_postingtemplate_forum[' . $forum_id . ']');
 
 		$template_data['FORUM_POSTINGTEMPLATE'] = ($postingtemplate) ? $postingtemplate : '';
 		
@@ -106,14 +125,16 @@ class listener implements EventSubscriberInterface
 		$load = $event['load'];
 		$save = $event['save'];
 		$refresh = $event['refresh'];
-		
+		$forum_id = $event['forum_id'];
+
 		if ($mode == 'post' 
 			&& !$submit && !$preview && !$load && !$save && !$refresh 
-			&& empty($post_data['post_text']) && empty($post_data['post_subject']))
+			&& empty($post_data['post_text']) && empty($post_data['post_subject'])
+			&& $this->config_text->get('marttiphpbb_postingtemplate_forum[' . $forum_id . ']'))
 		{
-			$page_data['MESSAGE'] = $post_data['forum_postingtemplate'];
+			$page_data['MESSAGE'] = $this->config_text->get('marttiphpbb_postingtemplate_forum[' . $forum_id . ']');
 		}
-		
+
 		$event['page_data'] = $page_data;
 	}
 }

@@ -31,7 +31,7 @@ class ext extends \phpbb\extension\base
 				$result = $db->sql_query($sql);
 				while ($forum_id = $db->sql_fetchfield('forum_id'))
 				{
-					$config_text->remove('marttiphpbb_postingtemplate_forum[' . $forum_id . ']');
+					$config_text->delete('marttiphpbb_postingtemplate_forum[' . $forum_id . ']');
 				}
 				$db->sql_freeresult($result);
 				return '1';
