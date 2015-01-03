@@ -13,4 +13,32 @@ namespace marttiphpbb\postingtemplate;
 
 class ext extends \phpbb\extension\base
 {
+	/**
+	* @param mixed $old_state State returned by previous call of this method
+	* @return mixed Returns false after last step, otherwise temporary state
+	*/
+	function purge_step($old_state)
+	{
+		switch ($old_state)
+		{
+			case '':
+				// remove posting template data
+				$config_text = $this->container->get('config_text');
+				$db = $this->container->get('conn.dbal');
+				$forums_table = $this->container->getParameter('tables.forums');
+
+				$sql = 'SELECT forum_id FROM ' . $forums_table;
+				$result = $db->sql_query($sql);
+				while ($forum_id = $db->sql_fetchfield('forum_id'))
+				{
+					$config_text->remove('marttiphpbb_postingtemplate_forum[' . $forum_id . ']');
+				}
+				$db->sql_freeresult($result);
+				return '1';
+				break;
+			default:
+				return parent::purge_step($old_state);
+				break;
+		}
+	}
 }
