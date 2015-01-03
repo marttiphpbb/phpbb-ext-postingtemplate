@@ -51,37 +51,10 @@ class listener implements EventSubscriberInterface
 	static public function getSubscribedEvents()
 	{
 		return array(
-//			'core.acp_manage_forums_request_data'		=> 'core_acp_manage_forums_request_data',
-//			'core.acp_manage_forums_initialise_data'	=> 'core_acp_manage_forums_initialise_data',
-
 			'core.acp_manage_forums_update_data_after'	=> 'core_acp_manage_forums_update_data_after',
 			'core.acp_manage_forums_display_form'		=> 'core_acp_manage_forums_display_form',
 			'core.posting_modify_template_vars'			=> 'core_posting_modify_template_vars',
 		);
-	}
-	
-	
-	public function core_acp_manage_forums_request_data($event)
-	{
-		$forum_data = $event['forum_data'];
-		
-		$forum_data['forum_postingtemplate'] = $this->request->variable('forum_postingtemplate', '', true);
-		
-		$event['forum_data'] = $forum_data;
-	}
-
-	public function core_acp_manage_forums_initialise_data($event)
-	{
-		$forum_data = $event['forum_data'];
-		$update = $event['update'];
-		$action = $event['action'];
-		
-		if (!$update && $action != 'edit')
-		{
-			$forum_data['forum_postingtemplate'] = '';
-		}
-		
-		$event['forum_data'] = $forum_data;
 	}
 
 	public function core_acp_manage_forums_update_data_after($event)
