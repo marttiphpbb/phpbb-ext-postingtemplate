@@ -10,26 +10,11 @@ namespace marttiphpbb\postingtemplate\migrations;
 use phpbb\db\migration\migration;
 
 class v_1_0_0 extends migration
-{	
-	public function update_schema()
+{
+	public function update_data()
 	{
 		return array(
-			'add_columns'        => array(
-				$this->table_prefix . 'forums'        => array(
-					'forum_postingtemplate'    	=> array('MTEXT_UNI', ''),				
-				),
-			),	
+			array('config_text.add', array('postingtemplate', array())),
 		);
-	}	
-	
-	public function revert_schema()
-	{
-		return array(
-			'drop_columns'        => array(
-				$this->table_prefix . 'forums'        => array(				
-					'forum_postingtemplate',								
-				),
-			),
-	   );
-	}	
+	}
 }
