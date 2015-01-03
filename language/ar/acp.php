@@ -8,7 +8,6 @@
 * Translated By : Basil Taha Alhitary - www.alhitary.net
 */
 
-
 if (!defined('IN_PHPBB'))
 {
 	exit;
@@ -18,7 +17,6 @@ if (empty($lang) || !is_array($lang))
 {
 	$lang = array();
 }
-
 
 // DEVELOPERS PLEASE NOTE
 //
@@ -32,9 +30,7 @@ if (empty($lang) || !is_array($lang))
 // equally where a string contains only two placeholders which are used to wrap text
 // in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
 
-
-
 $lang = array_merge($lang, array(
 	'ACP_POSTINGTEMPLATE'			=> 'قالب المشاركة ',
-	'ACP_POSTINGTEMPLATE_EXPLAIN'	=> 'عند إضافة موضوع جديد في هذا المنتدى , سيتم إضافة هذا القالب تلقائياً إلى مربع النص. اتركه فارغاً لتعطيل هذا الخيار.', 
+	'ACP_POSTINGTEMPLATE_EXPLAIN'	=> 'عند إضافة موضوع جديد في هذا المنتدى , سيتم إضافة هذا القالب تلقائياً إلى مربع النص. اتركه فارغاً لتعطيل هذا الخيار.',
 ));

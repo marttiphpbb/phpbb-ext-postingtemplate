@@ -6,7 +6,6 @@
 * @license http://opensource.org/licenses/MIT
 */
 
-
 if (!defined('IN_PHPBB'))
 {
 	exit;
@@ -16,7 +15,6 @@ if (empty($lang) || !is_array($lang))
 {
 	$lang = array();
 }
-
 
 // DEVELOPERS PLEASE NOTE
 //
@@ -30,9 +28,7 @@ if (empty($lang) || !is_array($lang))
 // equally where a string contains only two placeholders which are used to wrap text
 // in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
 
-
-
 $lang = array_merge($lang, array(
 	'ACP_POSTINGTEMPLATE'			=> 'Posting template',
-	'ACP_POSTINGTEMPLATE_EXPLAIN'	=> 'When starting a topic, the text editor will be pre-filled with the posting template. Leave blank when you don\'t whish to use this.', 
+	'ACP_POSTINGTEMPLATE_EXPLAIN'	=> 'When starting a topic, the text editor will be pre-filled with the posting template. Leave blank when you don\'t whish to use this.',
 ));

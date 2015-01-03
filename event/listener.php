@@ -32,7 +32,7 @@ class listener implements EventSubscriberInterface
 
 	/**
 	* @param config_text		$config_text
-	* @param request			$request	
+	* @param request			$request
 	* @param user				$user
 	*/
 	public function __construct(
@@ -44,8 +44,7 @@ class listener implements EventSubscriberInterface
 		$this->config_text = $config_text;
 		$this->request = $request;
 		$this->user = $user;
-	}	
-	
+	}
 
 	static public function getSubscribedEvents()
 	{
@@ -81,7 +80,7 @@ class listener implements EventSubscriberInterface
 		$postingtemplate = $this->config_text->get('marttiphpbb_postingtemplate_forum[' . $forum_id . ']');
 
 		$template_data['FORUM_POSTINGTEMPLATE'] = ($postingtemplate) ? $postingtemplate : '';
-		
+
 		$event['template_data'] = $template_data;
 
 		$this->user->add_lang_ext('marttiphpbb/postingtemplate', 'acp');
@@ -99,8 +98,8 @@ class listener implements EventSubscriberInterface
 		$refresh = $event['refresh'];
 		$forum_id = $event['forum_id'];
 
-		if ($mode == 'post' 
-			&& !$submit && !$preview && !$load && !$save && !$refresh 
+		if ($mode == 'post'
+			&& !$submit && !$preview && !$load && !$save && !$refresh
 			&& empty($post_data['post_text']) && empty($post_data['post_subject'])
 			&& $this->config_text->get('marttiphpbb_postingtemplate_forum[' . $forum_id . ']'))
 		{
