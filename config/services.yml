@@ -2,6 +2,7 @@ services:
     marttiphpbb.postingtemplate.listener:
         class: marttiphpbb\postingtemplate\event\listener
         arguments:
+            - @config_text
             - @request
             - @user
         tags:

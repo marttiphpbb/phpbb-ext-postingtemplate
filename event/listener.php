@@ -7,6 +7,7 @@
 
 namespace marttiphpbb\postingtemplate\event;
 
+use phpbb\config\db_text as config_text;
 use phpbb\request\request;
 use phpbb\user;
 
@@ -20,22 +21,28 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 */
 class listener implements EventSubscriberInterface
 {
+	/** @var config_text */
+	protected $config_text;
 
 	/* @var request */
 	protected $request;
 
 	/* @var user */
 	protected $user;
+
 	
-	/**	
+	/**
+	* @param config_text		$config_text
 	* @param request			$request	
 	* @param user				$user
 	*/
 	public function __construct(
+			config_text $config_text,
 			request $request,
 			user $user
 		)
 	{
+		$this->config_text = $config_text;
 		$this->request = $request;
 		$this->user = $user;
 	}	
