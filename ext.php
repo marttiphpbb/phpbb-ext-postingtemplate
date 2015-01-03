@@ -22,9 +22,9 @@ class ext extends \phpbb\extension\base
 		switch ($old_state)
 		{
 			case '':
-				// remove posting template data
+				// delete posting template data
 				$config_text = $this->container->get('config_text');
-				$db = $this->container->get('conn.dbal');
+				$db = $this->container->get('dbal.conn');
 				$forums_table = $this->container->getParameter('tables.forums');
 
 				$sql = 'SELECT forum_id FROM ' . $forums_table;

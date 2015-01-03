@@ -30,7 +30,6 @@ class listener implements EventSubscriberInterface
 	/* @var user */
 	protected $user;
 
-	
 	/**
 	* @param config_text		$config_text
 	* @param request			$request	
