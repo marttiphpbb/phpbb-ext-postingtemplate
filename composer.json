@@ -3,7 +3,7 @@
 	"type": "phpbb-extension",
 	"description": "Posting Template Extension for phpBB 3.1",
 	"homepage": "https://github.com/marttiphpbb/phpbb-ext-postingtemplate",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"time": "2014-12-30",
 	"license": "MIT",
 	"authors": [{
