@@ -29,9 +29,9 @@ class ext extends \phpbb\extension\base
 
 				$sql = 'SELECT forum_id FROM ' . $forums_table;
 				$result = $db->sql_query($sql);
-				while ($forum_id = $db->sql_fetchfield('forum_id'))
+				while ($row = $db->sql_fetchrow($result))
 				{
-					$config_text->delete('marttiphpbb_postingtemplate_forum[' . $forum_id . ']');
+					$config_text->delete('marttiphpbb_postingtemplate_forum[' . $row['forum_id'] . ']');
 				}
 				$db->sql_freeresult($result);
 				return '1';
