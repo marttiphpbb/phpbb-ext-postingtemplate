@@ -60,7 +60,7 @@ class listener implements EventSubscriberInterface
 		$forum_data = $event['forum_data'];
 		$forum_id = $forum_data['forum_id'];
 
-		$postingtemplate = $this->request->variable('forum_postingtemplate', '');
+		$postingtemplate = $this->request->variable('forum_postingtemplate', '', true);
 
 		if ($postingtemplate)
 		{
