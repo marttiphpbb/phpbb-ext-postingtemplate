@@ -29,11 +29,12 @@ class ext extends \phpbb\extension\base
 
 				$sql = 'SELECT forum_id FROM ' . $forums_table;
 				$result = $db->sql_query($sql);
-				while ($row = $db->sql_fetchrow($result))
-				{
-					$config_text->delete('marttiphpbb_postingtemplate_forum[' . $row['forum_id'] . ']');
-				}
+				$rowset = $db->sql_fetchrowset($result);
 				$db->sql_freeresult($result);
+				$possible_postingtemplates = array_map(function($row){
+					return 'marttiphpbb_postingtemplate_forum[' . $row['forum_id'] . ']';
+				}, $rowset);
+				$config_text->delete_array($possible_postingtemplates);
 				return '1';
 				break;
 			default:
