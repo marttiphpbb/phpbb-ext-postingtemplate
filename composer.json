@@ -5,7 +5,7 @@
 	"homepage": "https://github.com/marttiphpbb/phpbb-ext-postingtemplate",
 	"version": "1.0.0-rc1",
 	"time": "2015-12-30",
-	"license": "MIT",
+	"license": "GPL-2.0",
 	"authors": [{
 			"name": "martti",
 			"email": "info@martti.be",
