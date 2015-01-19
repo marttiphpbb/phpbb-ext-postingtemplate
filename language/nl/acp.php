@@ -3,7 +3,7 @@
 /**
 * phpBB Extension - marttiphpbb 
 * @copyright (c) 2015 marttiphpbb <info@martti.be>
-* @license http://opensource.org/licenses/MIT
+* @license GNU General Public License, version 2 (GPL-2.0)
 * [Dutch] translated by Dutch Translators (https://github.com/dutch-translators)
 */
 
