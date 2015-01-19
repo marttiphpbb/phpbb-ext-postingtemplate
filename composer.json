@@ -4,7 +4,7 @@
 	"description": "Posting Template Extension for phpBB 3.1",
 	"homepage": "https://github.com/marttiphpbb/phpbb-ext-postingtemplate",
 	"version": "1.0.0-rc1",
-	"time": "2014-12-30",
+	"time": "2015-12-30",
 	"license": "MIT",
 	"authors": [{
 			"name": "martti",

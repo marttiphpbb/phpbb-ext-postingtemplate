@@ -57,7 +57,7 @@
             ],
             "description": "Library for accessing git",
             "homepage": "http://gitonomy.com",
-            "time": "2014-07-13 19:02:31"
+            "time": "2015-07-13 19:02:31"
         },
         {
             "name": "nikic/php-parser",
@@ -102,7 +102,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2014-07-23 18:24:17"
+            "time": "2015-07-23 18:24:17"
         },
         {
             "name": "phpbb/epv",
@@ -150,7 +150,7 @@
                 }
             ],
             "description": "A extension validator for phpBB extensions. Extensions are required to pass the validator when submitted to the extension database.",
-            "time": "2014-12-13 10:15:27"
+            "time": "2015-12-13 10:15:27"
         },
         {
             "name": "sensiolabs/ansi-to-html",
@@ -194,7 +194,7 @@
                 }
             ],
             "description": "A library to convert a text with ANSI codes to HTML",
-            "time": "2014-08-01 14:02:39"
+            "time": "2015-08-01 14:02:39"
         },
         {
             "name": "symfony/console",
@@ -251,7 +251,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "http://symfony.com",
-            "time": "2014-12-02 20:19:20"
+            "time": "2015-12-02 20:19:20"
         },
         {
             "name": "symfony/finder",
@@ -298,7 +298,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "http://symfony.com",
-            "time": "2014-12-02 20:19:20"
+            "time": "2015-12-02 20:19:20"
         },
         {
             "name": "symfony/process",
@@ -345,7 +345,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "http://symfony.com",
-            "time": "2014-12-02 20:19:20"
+            "time": "2015-12-02 20:19:20"
         },
         {
             "name": "symfony/yaml",
@@ -392,7 +392,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "http://symfony.com",
-            "time": "2014-12-02 20:19:20"
+            "time": "2015-12-02 20:19:20"
         }
     ],
     "aliases": [],

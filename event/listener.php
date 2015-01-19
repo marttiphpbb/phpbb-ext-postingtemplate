@@ -1,7 +1,7 @@
 <?php
 /**
 * phpBB Extension - marttiphpbb posting template
-* @copyright (c) 2014 marttiphpbb <info@martti.be>
+* @copyright (c) 2015 marttiphpbb <info@martti.be>
 * @license http://opensource.org/licenses/MIT
 */
 
@@ -39,7 +39,7 @@ class listener implements EventSubscriberInterface
 			config_text $config_text,
 			request $request,
 			user $user
-		)
+	)
 	{
 		$this->config_text = $config_text;
 		$this->request = $request;
@@ -74,10 +74,11 @@ class listener implements EventSubscriberInterface
 
 	public function core_acp_manage_forums_display_form($event)
 	{
+		$action = $event['action'];
 		$forum_id = $event['forum_id'];
 		$template_data = $event['template_data'];
 
-		$postingtemplate = $this->config_text->get('marttiphpbb_postingtemplate_forum[' . $forum_id . ']');
+		$postingtemplate = ($action == 'add') ? '' : $this->config_text->get('marttiphpbb_postingtemplate_forum[' . $forum_id . ']');
 
 		$template_data['FORUM_POSTINGTEMPLATE'] = ($postingtemplate) ? $postingtemplate : '';
 
