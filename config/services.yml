@@ -3,7 +3,10 @@ services:
         class: marttiphpbb\postingtemplate\event\listener
         arguments:
             - @config_text
+            - @dbal.conn
             - @request
             - @user
+            - %tables.config_text%
+            - %tables.forums%
         tags:
             - { name: event.listener }

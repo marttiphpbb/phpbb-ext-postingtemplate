@@ -8,6 +8,7 @@
 namespace marttiphpbb\postingtemplate\event;
 
 use phpbb\config\db_text as config_text;
+use phpbb\db\driver\factory as db;
 use phpbb\request\request;
 use phpbb\user;
 
@@ -24,35 +25,92 @@ class listener implements EventSubscriberInterface
 	/** @var config_text */
 	protected $config_text;
 
+	/** @var db **/
+	protected $db;
+
 	/* @var request */
 	protected $request;
 
 	/* @var user */
 	protected $user;
 
+	/* @var string */
+	protected $config_text_table;
+
+	/* @var string */
+	protected $forums_table;
+
 	/**
 	* @param config_text		$config_text
+	* @param db					$db
 	* @param request			$request
 	* @param user				$user
+	* @param string				$config_text_table
+	* @param string				$forums_table
 	*/
 	public function __construct(
 			config_text $config_text,
+			db $db,
 			request $request,
-			user $user
+			user $user,
+			$config_text_table,
+			$forums_table
 	)
 	{
 		$this->config_text = $config_text;
+		$this->db = $db;
 		$this->request = $request;
 		$this->user = $user;
+		$this->config_text_table = $config_text_table;
+		$this->forums_table = $forums_table;
 	}
 
 	static public function getSubscribedEvents()
 	{
 		return array(
+			'core.acp_manage_forums_initialise_data'	=> 'core_acp_manage_forums_initialise_data',
 			'core.acp_manage_forums_update_data_after'	=> 'core_acp_manage_forums_update_data_after',
 			'core.acp_manage_forums_display_form'		=> 'core_acp_manage_forums_display_form',
 			'core.posting_modify_template_vars'			=> 'core_posting_modify_template_vars',
 		);
+	}
+
+	public function core_acp_manage_forums_initialise_data($event)
+	{
+		// because there's no php event in delete forums,
+		// we do cleanup of posting templates of deleted forums whenever showing the form.
+		$sql = 'SELECT config_name
+			FROM ' . $this->config_text_table . '
+			WHERE config_name ' . $this->db->sql_like_expression('marttiphpbb_postingtemplate_forum' . $this->db->get_any_char());
+		$result = $this->db->sql_query($sql);
+		$postingtemplates = $this->db->sql_fetchrowset($result);
+		$this->db->sql_freeresult($result);
+
+		if (sizeof($postingtemplates))
+		{
+			$all_forums = array();
+			$sql = 'SELECT forum_id FROM ' . $this->forums_table;
+			$result = $this->db->sql_query($sql);
+			while ($forum_id = $this->db->sql_fetchfield('forum_id'))
+			{
+				$all_forums[$forum_id] = 1;
+			}
+			$this->db->sql_freeresult($result);
+
+			$to_delete_ary = array();
+
+			foreach ($postingtemplates as $name)
+			{
+				$name = $name['config_name'];
+				$forum_id = trim(substr($name, strpos($name, '[') + 1), ']');
+				if (!isset($all_forums[$forum_id]))
+				{
+					$to_delete_ary[] = $name;
+				} 
+			}
+
+			$this->config_text->delete_array($to_delete_ary);
+		}
 	}
 
 	public function core_acp_manage_forums_update_data_after($event)
