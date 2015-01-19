@@ -26,7 +26,7 @@ class ext extends \phpbb\extension\base
 				$config_text = $this->container->get('config_text');
 				$db = $this->container->get('dbal.conn');
 				$config_text_table = $this->container->getParameter('tables.config_text');
-				
+
 				// there's no method in the config_text service to retrieve the names with a sql like expression, so we do it with a query here.
 				$sql = 'SELECT config_name
 					FROM ' . $config_text_table . '

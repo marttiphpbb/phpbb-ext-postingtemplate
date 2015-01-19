@@ -106,7 +106,7 @@ class listener implements EventSubscriberInterface
 				if (!isset($all_forums[$forum_id]))
 				{
 					$to_delete_ary[] = $name;
-				} 
+				}
 			}
 
 			$this->config_text->delete_array($to_delete_ary);
