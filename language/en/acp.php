@@ -30,5 +30,5 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
 	'ACP_POSTINGTEMPLATE'			=> 'Posting template',
-	'ACP_POSTINGTEMPLATE_EXPLAIN'	=> 'When starting a topic, the text editor will be pre-filled with the posting template. Leave blank when you don\'t whish to use this.',
+	'ACP_POSTINGTEMPLATE_EXPLAIN'	=> 'When starting a topic, the text editor will be pre-filled with the posting template. Leave blank when you don\'t wish to use this.',
 ));
