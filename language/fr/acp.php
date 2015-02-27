@@ -33,6 +33,6 @@ if (empty($lang) || !is_array($lang))
 // ’ » “ ” …
 
 $lang = array_merge($lang, array(
-	'ACP_POSTINGTEMPLATE'			=> 'Modèle d’affichage',
-	'ACP_POSTINGTEMPLATE_EXPLAIN'	=> 'Lors de la création d’un sujet, l’éditeur de texte sera pré-rempli selon le modèle d’affichage. Laissez ce champ vide lorsque vous ne souhaitez pas l’utiliser.',
+	'ACP_POSTINGTEMPLATE'			=> 'Modèle de message',
+	'ACP_POSTINGTEMPLATE_EXPLAIN'	=> 'Lors de la création d’un sujet, l’éditeur de texte sera pré-rempli selon le modèle de message. Laissez ce champ vide lorsque vous ne souhaitez pas l’utiliser.',
 ));
