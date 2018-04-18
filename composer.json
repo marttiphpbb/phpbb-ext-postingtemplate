@@ -13,7 +13,7 @@
 			"role": "Developer"
 		}],
 	"require": {
-		"php": ">=5.3.3"
+		"php": ">=7"
 	},
 	"require-dev": {
 		"phpbb/epv": "dev-master"
@@ -21,7 +21,7 @@
 	"extra": {
 		"display-name": "Posting Template",
 		"soft-require": {
-			"phpbb/phpbb": ">=3.1.0-RC2,<3.2.*@dev"
+			"phpbb/phpbb": ">=3.2,<3.3"
 		},
 		"version-check": {
 			"host": "marttiphpbb.github.io",
