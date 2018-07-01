@@ -2,7 +2,7 @@
 
 /**
 * phpBB Extension - marttiphpbb posting template
-* @copyright (c) 2015 marttiphpbb <info@martti.be>
+* @copyright (c) 2015 - 2018 marttiphpbb <info@martti.be>
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 * Translated By : Basil Taha Alhitary - www.alhitary.net

@@ -2,7 +2,7 @@
 
 /**
 * phpBB Extension - marttiphpbb posting template
-* @copyright (c) 2015 marttiphpbb <info@martti.be>
+* @copyright (c) 2015 - 2018 marttiphpbb <info@martti.be>
 * Swedish translation by Holger (http://www.maskinisten.net)
 * @license GNU General Public License, version 2 (GPL-2.0)
 */

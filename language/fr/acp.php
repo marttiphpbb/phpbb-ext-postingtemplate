@@ -3,7 +3,7 @@
 /**
 * phpBB Extension - marttiphpbb posting template
 * French translation by Galixte (http://www.galixte.com)
-* @copyright (c) 2015 marttiphpbb <info@martti.be>
+* @copyright (c) 2015 - 2018 marttiphpbb <info@martti.be>
 * @license GNU General Public License, version 2 (GPL-2.0)
 */
 
