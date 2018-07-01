@@ -1,4 +1,4 @@
-# phpBB 3.1 PhpBB Extension - marttiphpbb Posting Template
+# phpBB 3.1 Extension - marttiphpbb Posting Template
 
 [Topic on phpBB.com](https://www.phpbb.com/community/viewtopic.php?f=456&t=2284951)
 
